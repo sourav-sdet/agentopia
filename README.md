@@ -6,13 +6,11 @@ This repository contains examples for learning Google's Agent Development Kit (A
 
 ### Setup Environment
 
-You only need to create one virtual environment for all examples in this course. Follow these steps to set it up:
-
 ```bash
 # Create virtual environment in the root directory
-python -m venv .venv
+python3 -m venv .venv
 
-# Activate (each new terminal)
+# Activate virtual environment
 # macOS/Linux:
 source .venv/bin/activate
 # Windows CMD:
@@ -24,7 +22,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Once set up, this single environment will work for all examples in the repository.
+
 
 ### Setting Up API Keys
 
