@@ -33,11 +33,10 @@ pip install -r requirements.txt
 5. Assign key to the project
 6. Connect to a billing account
 
-Each example folder contains a `.env.example` file. For each project you want to run:
+Each example folder contains a `.env` file. For each project you want to run:
 
-1. Navigate to the example folder
-2. Rename `.env.example` to `.env` 
-3. Open the `.env` file and replace the placeholder with your API key:
+1. Navigate to the example folder 
+2. Open the `.env` file and replace the placeholder with your API key:
    ```
    GOOGLE_API_KEY=your_api_key_here
    ```
