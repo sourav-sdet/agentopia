@@ -2,6 +2,8 @@ from google.adk.agents import Agent
 import datetime
 from zoneinfo import ZoneInfo
 
+// This agent uses 2 custom tools - get_weather and get_current_time defined as python functions
+
 def get_weather(city:str) -> dict:
 
     """Retrieves the current weather report for a specified city.
