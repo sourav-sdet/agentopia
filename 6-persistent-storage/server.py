@@ -50,3 +50,29 @@ async def main_async():
 
     # ===== STEP 4: Agent Runner Setup =====
     # Create a runner with the memory agent
+    runner = Runner(
+        agent = reminder_agent,
+        app_name = APP_NAME,
+        session_service = session_service
+    )
+
+
+    # ===== PART 5: Interactive Conversation Loop =====
+    print("\nWelcome to Reminder Agent Chat!")
+    print("Your reminders will be remembered across conversations.")
+    print("Type 'exit' or 'quit' to end the conversation.\n")
+
+    while true:
+        # Get User Input
+        user_input = input("You: ")
+
+        # Check if user wants to exit
+        if user_input.lower() in ["exit", "quit"]:
+            print("Ending conversation. Your data has been saved to the database.")
+            break
+
+        # Process the user query through the agent
+        await call_agent_async(runner, USER_ID, SESSION_ID, user_input)
+    
+if __name__ == "__main__":
+    asyncio.run(main_async())
