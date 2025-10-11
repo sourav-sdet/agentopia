@@ -16,7 +16,7 @@ session_service = DatabaseSessionService(db_url=db_url)
 # ===== STEP 2: Define Initial State =====
 # This will only be used when creating a new session
 initial_state = {
-    "username": "Sourav Mishra",
+    "user_name": "Sourav Mishra",
     "reminders": [],
 }
 
@@ -27,20 +27,20 @@ async def main_async():
 
     # ===== STEP 3: Session Management - Find or Create =====
     # Check for existing sessions for this user
-    existing_sessions = session_service.list_sessions(
+    existing_sessions = await session_service.list_sessions(
         app_name=APP_NAME,
         user_id=USER_ID,
     )
 
     # If there's an existing session, use it, otherwise create a new one
-    if existing_sessions and len(existing_sessions) > 0:
+    if existing_sessions and len(existing_sessions.sessions) > 0:
         # Use the most recent session
         SESSION_ID = existing_sessions.sessions[0].id
         print(f"Continuing with existing session: {SESSION_ID}")
     
     else:
         # Create a new session with initial state
-        new_session = session_service.create_session(
+        new_session = await session_service.create_session(
             app_name=APP_NAME,
             user_id=USER_ID,
             state=initial_state,
@@ -62,7 +62,7 @@ async def main_async():
     print("Your reminders will be remembered across conversations.")
     print("Type 'exit' or 'quit' to end the conversation.\n")
 
-    while true:
+    while True:
         # Get User Input
         user_input = input("You: ")
 

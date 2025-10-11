@@ -153,7 +153,7 @@ def update_user_name(name: str, tool_context: ToolContext) -> dict:
 
 
 # Create a simple persistent agent
-memory_agent = Agent(
+reminder_agent = Agent(
     name="reminder_agent",
     model="gemini-2.0-flash",
     description="A smart reminder agent with persistent memory",

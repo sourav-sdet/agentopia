@@ -26,12 +26,12 @@ class Colors:
     BG_CYAN = "\033[46m"
     BG_WHITE = "\033[47m"
 
-def display_state(
+async def display_state(
     session_service, app_name, user_id, session_id, label="Current State"
     ):
     """Display the current session state in a formatted way."""
     try:
-        session = session_service.get_session(
+        session = await session_service.get_session(
             app_name=app_name, user_id=user_id, session_id=session_id
         )
 
@@ -66,7 +66,7 @@ async def call_agent_async(
     final_response_text = None
 
     # Display state before processing
-    display_state(
+    await display_state(
         runner.session_service,
         runner.app_name,
         user_id,
@@ -86,7 +86,7 @@ async def call_agent_async(
         print(f"Error during agent call: {e}")
 
     # Display state after processing the message
-    display_state(
+    await display_state(
         runner.session_service,
         runner.app_name,
         user_id,
